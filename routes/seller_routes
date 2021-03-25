@@ -1,0 +1,14 @@
+var express = require('express');
+var router = express.Router();
+const seller_controller = require('../controllers/seller_controller');
+
+
+
+
+router.get('/', seller_controller.register_login)
+
+router.get('/callback', seller_controller.register_login_callback )
+
+
+
+module.exports = router;

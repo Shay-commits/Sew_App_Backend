@@ -1,0 +1,20 @@
+const { pool } = require('../models/queries.js')
+
+
+// get list of sale items 
+const getSaleItems = (req,res) => {
+    pool.query('SELECT * FROM sale_items', (err,results) => {
+        if (err) {
+            throw error
+        }
+
+        const display = results.rows[0].title
+        console.log(display)
+        res.status(200).json(display)
+    })
+}
+
+
+module.exports = {
+    getSaleItems
+}

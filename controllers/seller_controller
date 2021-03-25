@@ -1,0 +1,25 @@
+var passport = require('passport')
+
+// Registration 
+exports.register_login = function (req, res) {
+  passport.authenticate('twitter') 
+}
+
+exports.register_login_callback = [
+  passport.authenticate('twitter', { failureRedirect: '/login' }),
+
+  function(req, res) {
+    // Successful authentication, redirect home.
+    console.log(`This is the data saved in the req.user object or not ${req.user}`)
+    console.log('succesful')
+    res.redirect('/');
+  }
+]
+
+// Posting a Sales Item 
+exports.post_tweet_for_sale = [ function (req,res)  {
+
+  const tweetId = req.body.tweet;
+
+
+}]
